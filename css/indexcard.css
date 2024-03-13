@@ -1,0 +1,91 @@
+body
+{
+    background: #cfd8dc;
+}
+
+#main-title
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Open Sans', sans serif;
+    font-size: 90px;
+    font-weight: bold;
+}
+
+#card-count
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Open Sans', sans serif;
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.menu-container
+{
+    display: flex;
+    font-family: 'Open Sans', sans serif;
+    font-size: 120px;
+    font-weight: bold;
+    width: 100%;
+    margin: 80px auto;
+    border-radius: 10px;
+    perspective: 1400px;
+    justify-content: space-between;
+}
+
+.card-container
+{
+    display: flex;
+    font-family: 'Open Sans', sans serif;
+    font-size: 120px;
+    font-weight: bold;
+    width: 100%;
+    margin: 80px auto;
+    border-radius: 10px;
+    perspective: 1400px;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card
+{
+    display: none;
+    opacity: 0;
+    height: 15vw;
+    width: 30vw;
+    border-radius: 10px;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    background: #2196f3;
+}
+
+.menu-card
+{
+    display: none;
+    opacity: 0;
+    height: 5rem;
+    width: 10rem;
+    border-radius: 10px;
+    margin: auto;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    background: #2196f3;
+}
+
+#back-button
+{
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 0.6em 1.5em;
+    border: 1px solid black;
+    box-shadow: 0 2px 0 0 black;
+    border-radius: 5px;
+    margin: 0 5px;
+}
