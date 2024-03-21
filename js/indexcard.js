@@ -138,6 +138,7 @@ class SightWordCardManager {
     #cardContainerDiv = document.getElementById("index-card-container");
     #cardDiv = document.getElementById('index-card');
     #countTextDiv = document.getElementById('card-count');
+    #sayAnswer = true;
     #wordArray = [];
     #onCardContainerClick = () => { this.nextCard(true); };
     #onKeyClick = (e) => {
@@ -212,6 +213,21 @@ class SightWordCardManager {
     }
 
     nextCard(moveForward) {
+        // Say answer before moving forward
+        if(moveForward && this.#sayAnswer && this.#currentIndex !== -1) {
+            if(synth) {
+                let currentWordObj = this.#wordArray[this.#currentIndex];
+                let voices = synth.getVoices();
+                const utterThis = new SpeechSynthesisUtterance(currentWordObj.answer);
+                utterThis.voice = voices[82];
+                utterThis.rate = 3;
+                synth.speak(utterThis);
+            }
+
+            this.#sayAnswer = false;
+            return;
+        }
+        
         if (moveForward) {
             this.#currentIndex += 1;
         }
@@ -229,15 +245,10 @@ class SightWordCardManager {
             this.#currentIndex = 0;
         }
 
-        if(synth) {
-            let currentWordObj = this.#wordArray[this.#currentIndex];
-            let voices = synth.getVoices();
-            const utterThis = new SpeechSynthesisUtterance(currentWordObj.expression + " is " + currentWordObj.answer);
-            utterThis.voice = voices[82];
-            synth.speak(utterThis);
-        }
-
         this.updateText();
+
+        // Set "sayAnswer" to true
+        this.#sayAnswer = true;
     }
 
     setIsAnimating(isAnimating) {
